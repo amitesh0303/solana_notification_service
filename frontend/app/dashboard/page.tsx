@@ -26,9 +26,8 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const userId = getUserId();
-
   async function load() {
+    const userId = getUserId();
     setLoading(true);
     setError(null);
     try {

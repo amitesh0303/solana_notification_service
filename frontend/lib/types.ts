@@ -28,7 +28,7 @@ export interface TelegramChannelConfig {
 }
 
 export interface DiscordChannelConfig {
-  webhookUrl: string;
+  channelId: string;
 }
 
 export type ChannelConfig =

@@ -37,9 +37,8 @@ export default function NotificationsPage() {
   const [channelFilter, setChannelFilter] = useState<Channel | 'all'>('all');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
 
-  const userId = getUserId();
-
   async function load() {
+    const userId = getUserId();
     setLoading(true);
     setError(null);
     try {

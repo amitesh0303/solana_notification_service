@@ -73,19 +73,19 @@ export default function ChannelConfig({ channel, config, onChange }: Props) {
     }
 
     case 'discord': {
-      const c = config as { webhookUrl?: string };
+      const c = config as { channelId?: string };
       return (
         <div>
-          <label className={labelClass}>Discord Webhook URL</label>
+          <label className={labelClass}>Discord Channel ID</label>
           <input
-            type="url"
-            placeholder="https://discord.com/api/webhooks/..."
-            value={c.webhookUrl ?? ''}
-            onChange={(e) => onChange({ webhookUrl: e.target.value })}
+            type="text"
+            placeholder="e.g. 1234567890123456789"
+            value={c.channelId ?? ''}
+            onChange={(e) => onChange({ channelId: e.target.value })}
             className={inputClass}
           />
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Create a webhook in your Discord channel settings.
+            Right-click your Discord channel and copy the Channel ID (enable Developer Mode first).
           </p>
         </div>
       );

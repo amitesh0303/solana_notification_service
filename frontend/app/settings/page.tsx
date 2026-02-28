@@ -22,7 +22,7 @@ export default function SettingsPage() {
               example: 're_xxxxxxxxxxxxxxxxxxxx',
             },
             {
-              name: 'EMAIL_FROM',
+              name: 'RESEND_FROM_EMAIL',
               description: 'The "from" address for outgoing emails.',
               example: 'alerts@yourdomain.com',
             },
@@ -84,18 +84,26 @@ export default function SettingsPage() {
         {/* Discord */}
         <SettingsSection
           icon="🎮"
-          title="Discord Webhook"
+          title="Discord Bot"
           color="purple"
-          vars={[]}
-          docs="https://support.discord.com/hc/en-us/articles/228383668"
-          docsLabel="Discord Webhook Docs"
-          steps={[
-            'Open Discord and go to your server settings',
-            'Navigate to Integrations → Webhooks → New Webhook',
-            'Choose a channel and copy the webhook URL',
-            'Paste the URL when creating a Discord subscription',
+          vars={[
+            {
+              name: 'DISCORD_BOT_TOKEN',
+              description: 'Bot token from the Discord Developer Portal.',
+              example: 'MTxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            },
           ]}
-          note="Discord webhooks are configured per-subscription — no global env var needed."
+          docs="https://discord.com/developers/docs/intro"
+          docsLabel="Discord Developer Docs"
+          steps={[
+            'Go to https://discord.com/developers/applications and create a new application',
+            'Under "Bot", create a bot and copy the token',
+            'Add DISCORD_BOT_TOKEN to your backend .env',
+            'Invite the bot to your server with the Guilds intent',
+            'Enable Developer Mode in Discord, right-click a channel and copy its Channel ID',
+            'Use the Channel ID when creating a Discord subscription',
+          ]}
+          note="The backend uses discord.js — the bot must be in the server and have permission to send messages in the target channel."
         />
 
         {/* Redis / Backend */}

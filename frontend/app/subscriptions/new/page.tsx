@@ -21,7 +21,7 @@ function defaultChannelConfig(channel: Channel): ChannelConfigType {
     case 'email': return { to: '' };
     case 'sms': return { to: '' };
     case 'telegram': return { chatId: '' };
-    case 'discord': return { webhookUrl: '' };
+    case 'discord': return { channelId: '' };
   }
 }
 
